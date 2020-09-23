@@ -10,7 +10,7 @@ class Blogger < ApplicationRecord
         x = self.posts.map do |bloggerpost|
         bloggerpost.likes
         end.sort.pop(5)
-        byebug
+        
 
         
     end

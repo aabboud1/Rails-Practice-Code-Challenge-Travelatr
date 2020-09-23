@@ -1,0 +1,10 @@
+<h1> Post </h1>
+
+<%= link_to @post.blogger.name, blogger_path(@post.blogger_id)%>
+<br><br>
+<%= @post.title %>
+<br><br>
+<%= @post.content%>
+
+<%= button_to('Like', blogger_path,
+        method: "get")  %>

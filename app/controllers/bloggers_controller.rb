@@ -12,15 +12,20 @@ class BloggersController < ApplicationController
 
     def new
         @blogger = Blogger.new 
-        render :new
     end
 
     def create
-        @blogger = Blogger.new(params["blogger"]["name"], params["blogger"]["age"], params["blogger"]["bio"])
+        @blogger = Blogger.new(blogger_params)
         if @blogger.save 
-            redirect_to taco_path(@blogger.id)
+            redirect_to blogger_path(@blogger.id)
         else 
             render :new
         end
     end
 end
+
+private
+
+def blogger_params
+    params.require(:blogger).permit(:name, :age, :bio)
+  end
