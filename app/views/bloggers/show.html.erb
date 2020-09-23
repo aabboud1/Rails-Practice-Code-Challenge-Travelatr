@@ -1,0 +1,16 @@
+<h1>Profile: <%= @blogger.name %></h1>
+
+Likes: <% @blogger.posts.each do |post| %>
+    <%= post.likes %>,
+<% end %>
+<br><br>
+Total likes: <%= @blogger.total_likes %>
+<br><br>
+Freatured: <%= @blogger.featured_post %>
+<h4>Featured: </h4>
+<ul>
+    <% @blogger.featured_post.each do |x| %>
+        <li><%= link_to x, post_path(x) %></li>
+            <%end%>
+
+</ul>
